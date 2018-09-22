@@ -1,0 +1,9 @@
+name = "CuFourierFlows"
+uuid = "7b65e2ec-be7b-11e8-0427-c747fd942c87"
+authors = ["Gregory LeClaire Wagner <wagner.greg@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+CuArrays = "3a865a2d-5b23-5a0f-bc46-62713ec82fae"
+FourierFlows = "2aec4490-903f-5c70-9b11-9bed06a700e1"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
