@@ -45,8 +45,8 @@ function CuTwoDGrid(nx, Lx, ny=nx, Ly=Lx; x0=-0.5*Lx, y0=-0.5*Ly)
   nkr = Int(nx/2+1)
 
   # Physical grid
-  x = Array{T}(reshape(linspace(x0, x0+Lx-dx, nx), (nx, 1)))
-  y = Array{T}(reshape(linspace(y0, y0+Ly-dy, ny), (1, ny)))
+  x = Array{T}(reshape(linspace(x0, stop=x0+Lx-dx, length=nx), (nx, 1)))
+  y = Array{T}(reshape(linspace(y0, stop=y0+Ly-dy, length=ny), (1, ny)))
   X = [ x[i] for i = 1:nx, j = 1:ny]
   Y = [ y[j] for i = 1:nx, j = 1:ny]
 
@@ -56,15 +56,15 @@ function CuTwoDGrid(nx, Lx, ny=nx, Ly=Lx; x0=-0.5*Lx, y0=-0.5*Ly)
   j1 = 0:Int(ny/2)
   j2 = Int(-ny/2+1):-1
 
-  k  = reshape(2π/Lx*cat(1, i1, i2), (nk, 1))
-  kr = reshape(2π/Lx*cat(1, i1), (nkr, 1))
-  l  = reshape(2π/Ly*cat(1, j1, j2), (1, nl))
+  k  = reshape(2π/Lx*cat(i1, i2, dims=1), (nk, 1))
+  kr = reshape(2π/Lx*cat(i1, dims=1), (nkr, 1))
+  l  = reshape(2π/Ly*cat(j1, j2, dims=1), (1, nl))
 
   Ksq  = @. k^2 + l^2
   invKsq = 1 ./ Ksq
   invKsq[1, 1] = 0
 
-  Krsq = @. k^2 + lr^2
+  Krsq = @. kr^2 + l^2
   invKrsq = 1 ./ Krsq
   invKrsq[1, 1] = 0
 
