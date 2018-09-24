@@ -19,11 +19,9 @@ export
 using 
   CuArrays,
   FFTW,
-  Reexport
+  FourierFlows
 
-import FourierFlows
-
-import FourierFlows: 
+using FourierFlows: 
   AbstractState,
 
   AbstractTwoDGrid,
@@ -35,8 +33,6 @@ import FourierFlows:
   AbstractFilteredRK4TimeStepper,
 
   makefilter
-  
-@reexport using FourierFlows
 
 include("utils.jl")
 include("domains.jl")
