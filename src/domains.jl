@@ -45,8 +45,8 @@ function CuTwoDGrid(nx, Lx, ny=nx, Ly=Lx; x0=-0.5*Lx, y0=-0.5*Ly)
   nkr = Int(nx/2+1)
 
   # Physical grid
-  x = Array{T}(reshape(linspace(x0, stop=x0+Lx-dx, length=nx), (nx, 1)))
-  y = Array{T}(reshape(linspace(y0, stop=y0+Ly-dy, length=ny), (1, ny)))
+  x = Array{T}(reshape(range(x0, stop=x0+Lx-dx, length=nx), (nx, 1)))
+  y = Array{T}(reshape(range(y0, stop=y0+Ly-dy, length=ny), (1, ny)))
   X = [ x[i] for i = 1:nx, j = 1:ny]
   Y = [ y[j] for i = 1:nx, j = 1:ny]
 
