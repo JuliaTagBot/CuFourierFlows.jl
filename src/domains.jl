@@ -73,10 +73,10 @@ function CuTwoDGrid(nx, Lx, ny=nx, Ly=Lx; x0=-0.5*Lx, y0=-0.5*Ly)
   invKrsq = 1 ./ Krsq
   invKrsq[1, 1] = 0
 
-  KKsq = deepcopy(Ksq)
-  invKKsq = deepcopy(invKsq)
-  KKrsq = deepcopy(Krsq)
-  invKKrsq = deepcopy(invKrsq)
+  KKsq = cu(deepcopy(Ksq))
+  invKKsq = cu(deepcopy(invKsq))
+  KKrsq = cu(deepcopy(Krsq))
+  invKKrsq = cu(deepcopy(invKrsq))
 
   # Convert Arrays to CuArrays
   @cuconvertarrays x y X Y k kr l Ksq invKsq Krsq invKrsq
