@@ -32,7 +32,8 @@ using FourierFlows:
   AbstractRK4TimeStepper,
   AbstractFilteredRK4TimeStepper,
 
-  makefilter
+  makefilter,
+  cxeltype
 
 import FourierFlows: makefilter
 
