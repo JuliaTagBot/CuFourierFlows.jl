@@ -34,6 +34,8 @@ using FourierFlows:
 
   makefilter
 
+import FourierFlows: makefilter
+
 include("utils.jl")
 include("domains.jl")
 include("problemstate.jl")

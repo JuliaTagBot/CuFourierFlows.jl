@@ -135,5 +135,4 @@ end
 makefilter(g, T, sz; kwargs...) = ones(T, sz).*makefilter(g; realvars=sz[1]==g.nkr, kwargs...)
 =#
 
-makefilter(g::CuTwoDGrid, T, sz; kwargs...) = cuones(T, sz).*makefilter(g; realvars=sz[1]==g.nkr, 
-                                                                                     kwargs...)
+makefilter(g::CuTwoDGrid, T, sz; kwargs...) = cuones(T, sz).*makefilter(g; realvars=sz[1]==g.nkr, kwargs...)
