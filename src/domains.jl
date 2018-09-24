@@ -19,6 +19,11 @@ struct CuTwoDGrid{T} <: AbstractTwoDGrid
   invKsq::CuArray{T,2}   # 1/KKsq, invKKsq[1, 1]=0
   Krsq::CuArray{T,2}     # Kr^2 + Lr^2
   invKrsq::CuArray{T,2}  # 1/KKrsq, invKKrsq[1, 1]=0
+  
+  KKsq::CuArray{T,2}      # K^2 + L^2
+  invKKsq::CuArray{T,2}   # 1/KKsq, invKKsq[1, 1]=0
+  KKrsq::CuArray{T,2}     # Kr^2 + Lr^2
+  invKKrsq::CuArray{T,2}  # 1/KKrsq, invKKrsq[1, 1]=0
 
   fftplan::CuArrays.FFT.cCuFFTPlan{Complex{T},-1,false,2}
   rfftplan::CuArrays.FFT.rCuFFTPlan{T,-1,false,2}
@@ -68,6 +73,11 @@ function CuTwoDGrid(nx, Lx, ny=nx, Ly=Lx; x0=-0.5*Lx, y0=-0.5*Ly)
   invKrsq = 1 ./ Krsq
   invKrsq[1, 1] = 0
 
+  KKsq = deepcopy(Ksq)
+  invKKsq = deepcopy(invKsq)
+  KKrsq = deepcopy(Krsq)
+  invKKrsq = deepcopy(invKrsq)
+
   # Convert Arrays to CuArrays
   @cuconvertarrays x y X Y k kr l Ksq invKsq Krsq invKrsq
 
@@ -85,6 +95,7 @@ function CuTwoDGrid(nx, Lx, ny=nx, Ly=Lx; x0=-0.5*Lx, y0=-0.5*Ly)
 
   CuTwoDGrid(nx, ny, nk, nl, nkr, Lx, Ly, dx, dy, x, y, X, Y,
              k, l, kr, Ksq, invKsq, Krsq, invKrsq,
+             KKsq, invKKsq, KKrsq, invKKrsq,
              fftplan, rfftplan, ialias, iralias, jalias)
 end
 

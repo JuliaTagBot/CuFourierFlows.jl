@@ -79,6 +79,12 @@ git-tree-sha1 = "85b5bf3ffcf4f39abe019dab1dd00a0aead8d882"
 uuid = "8f4d0f93-b110-5947-807f-2305c1781a2d"
 version = "1.0.2"
 
+[[Coverage]]
+deps = ["Compat", "HTTP", "JSON", "MbedTLS"]
+git-tree-sha1 = "cf60c0f9832b897d22a65be674148a7f37b40f6a"
+uuid = "a2441757-f6aa-5fb2-8edb-039e3f45d037"
+version = "0.6.0"
+
 [[CuArrays]]
 deps = ["AbstractFFTs", "Adapt", "CUDAapi", "CUDAdrv", "CUDAnative", "DiffRules", "ForwardDiff", "GPUArrays", "LinearAlgebra", "MacroTools", "NNlib", "Printf", "Random", "Test"]
 git-tree-sha1 = "ed8d6eea1e50fca4ec9068c077969adf35946834"
@@ -115,6 +121,18 @@ version = "0.0.7"
 deps = ["LinearAlgebra", "Random", "Serialization", "Sockets"]
 uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
+[[DocStringExtensions]]
+deps = ["LibGit2", "Markdown", "Pkg", "Test"]
+git-tree-sha1 = "a016e0bfe98a748c4488e2248c2ef4c67d6fdd35"
+uuid = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
+version = "0.5.0"
+
+[[Documenter]]
+deps = ["Compat", "DocStringExtensions", "Logging", "REPL"]
+git-tree-sha1 = "7534ff3c50333a69ae0778d4d869e6f5c9ec022a"
+uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+version = "0.19.6"
+
 [[FFTW]]
 deps = ["AbstractFFTs", "BinaryProvider", "Compat", "Conda", "Libdl", "LinearAlgebra", "Pkg", "Reexport", "Test"]
 git-tree-sha1 = "29cda58afbf62f35b1a094882ad6c745a47b2eaa"
@@ -140,8 +158,10 @@ uuid = "f6369f11-7733-5829-9624-2563aa707210"
 version = "0.9.0"
 
 [[FourierFlows]]
-deps = ["ComputationalResources", "FFTW", "Interpolations", "JLD2", "LinearAlgebra", "Pkg", "Printf", "Random", "Requires", "SpecialFunctions", "Statistics", "Test"]
-git-tree-sha1 = "da54d0bdc32940f7730ad34c29d2280f79ef16f3"
+deps = ["ComputationalResources", "Coverage", "CuArrays", "Documenter", "FFTW", "Interpolations", "JLD2", "LinearAlgebra", "Random", "Requires", "SpecialFunctions", "Statistics", "Test"]
+git-tree-sha1 = "95f326121a891f334e429f8ea260976c097ce7a5"
+repo-rev = "ClarityRefactor"
+repo-url = "https://github.com/FourierFlows/FourierFlows.jl.git"
 uuid = "2aec4490-903f-5c70-9b11-9bed06a700e1"
 version = "0.2.1"
 
@@ -150,6 +170,18 @@ deps = ["FFTW", "FillArrays", "LinearAlgebra", "Pkg", "Printf", "Random", "Seria
 git-tree-sha1 = "718a68157a867a5883c7715f441190e70245e86e"
 uuid = "0c68f7d7-f131-5f86-a1c3-88cf8149b2d7"
 version = "0.4.0"
+
+[[HTTP]]
+deps = ["Base64", "Dates", "Distributed", "IniFile", "MbedTLS", "Sockets", "Test"]
+git-tree-sha1 = "16499da36240bf80df9a7e9b0f228710be1fe37c"
+uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+version = "0.7.0"
+
+[[IniFile]]
+deps = ["Test"]
+git-tree-sha1 = "098e4d2c533924c921f9f9847274f2ad89e018b8"
+uuid = "83e8ac13-25f8-5344-8a64-a9f2b223428f"
+version = "0.5.0"
 
 [[InteractiveUtils]]
 deps = ["LinearAlgebra", "Markdown"]
@@ -201,6 +233,12 @@ version = "0.4.4"
 [[Markdown]]
 deps = ["Base64"]
 uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
+
+[[MbedTLS]]
+deps = ["BinaryProvider", "Libdl", "Pkg", "Random", "Sockets", "Test"]
+git-tree-sha1 = "30016e3f9359f43b76cc2185efea5de5f6c9aa62"
+uuid = "739be429-bea8-5141-9913-cc70e7f3736d"
+version = "0.6.2"
 
 [[Mmap]]
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
