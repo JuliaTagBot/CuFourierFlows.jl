@@ -17,8 +17,9 @@ export
   @cucreatearrays
 
 using 
-  Reexport,
-  CuArrays
+  CuArrays,
+  FFTW,
+  Reexport
 
 import FourierFlows
 
