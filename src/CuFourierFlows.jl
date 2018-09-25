@@ -14,7 +14,7 @@ export
   CuFilteredRK4TimeStepper,
 
   @cuconvertarrays,
-  @cucreatearrays
+  @createcuarrays
 
 using 
   CuArrays,

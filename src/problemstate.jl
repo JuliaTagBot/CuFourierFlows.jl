@@ -44,4 +44,4 @@ struct DualCuEquation{T,dimc,dimr} <: AbstractEquation
   calcN!::Function
 end
 
-CuEquation(eq::AbstractEquation) = CuEquation(cu(eq.LC), eq.calcN!)
+CuEquation(eq::AbstractEquation) = CuEquation(CuArray(eq.LC), eq.calcN!)
