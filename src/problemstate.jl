@@ -10,7 +10,7 @@ mutable struct CuState{T,dim} <: AbstractState
   sol::CuArray{T,dim}
 end
 
-CuState(T::DataType, sz::Tuple, dt) = CuState(T(0), 0, T(dt), cu(zeros(T, sz)))
+CuState(T::DataType, sz::Tuple, dt) = CuState{T,length(sz)}(0, 0, dt, CuArray(zeros(T, sz)))
 
 mutable struct CuDualState{T,dimc,dimr} <: AbstractState
   t::T
@@ -23,7 +23,7 @@ end
 function CuDualState(T::DataType, sizec, sizer, dt)
   solc = CuArray(zeros(T, sizec))
   solr = CuArray(zeros(T, sizer))
-  CuDualState(T(0), 0, T(dt), solc, solr)
+  CuDualState{T,length(sizec),length(sizer)}(0, 0, dt, solc, solr)
 end
 
 # Equation Composite Type
